@@ -1,0 +1,532 @@
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #0f0f0f;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    height: 70px;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    z-index: 100;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu {
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: red;
+}
+
+.logo sup {
+    font-size: 9px;
+    color: #555;
+}
+
+/* SEARCH AREA */
+.search-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 45%;
+    max-width: 600px;
+}
+
+.search-box {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-text {
+    flex: 1;
+    padding-left: 15px;
+    color: #777;
+    font-size: 15px;
+}
+
+.search-icon {
+    width: 55px;
+    height: 100%;
+    background: #f8f8f8;
+    border-left: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mic {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* RIGHT HEADER */
+.right-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.create {
+    background: #f2f2f2;
+    padding: 10px 17px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.notification {
+    position: relative;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.notification span {
+    position: absolute;
+    top: -7px;
+    right: -12px;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+.profile {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 65px;
+    height: calc(100vh - 70px);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background: white;
+    padding-top: 5px;
+    z-index: 50;
+}
+
+.side-item {
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 3px;
+}
+
+.side-item:hover {
+    background: #f2f2f2;
+}
+
+.side-icon {
+    font-size: 22px;
+}
+
+.side-item p {
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+/* MAIN */
+.main {
+    margin-left: 65px;
+    padding: 85px 10px 30px;
+}
+
+/* CATEGORIES */
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 32px;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category {
+    padding: 8px 14px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.category:hover {
+    background: #e5e5e5;
+}
+
+.category.active {
+    background: #0f0f0f;
+    color: white;
+}
+
+/* VIDEO GRID */
+.videos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.video-card {
+    min-width: 0;
+    cursor: pointer;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    position: relative;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: #111;
+    color: white;
+    font-size: 11px;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+
+/* VIDEO INFO */
+.video-info {
+    display: flex;
+    gap: 9px;
+    margin-top: 10px;
+}
+
+.channel-logo {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    background: #222;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.channel-logo.red {
+    background: #e32636;
+}
+
+.video-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.video-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.channel-name {
+    color: #606060;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.views {
+    color: #606060;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.dots {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* SHORTS HEADING */
+.shorts-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 38px 0 20px;
+}
+
+.shorts-heading h2 {
+    font-size: 20px;
+}
+
+.shorts-icon {
+    color: #ff0033;
+    font-size: 22px;
+}
+
+.shorts-dots {
+    margin-left: auto;
+    font-size: 23px;
+}
+
+/* SHORTS GRID */
+.shorts {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.short-card {
+    min-width: 0;
+    cursor: pointer;
+}
+
+.short-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.short-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+    line-height: 18px;
+}
+
+/* LAPTOP */
+@media screen and (max-width: 1200px) {
+
+    .videos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shorts {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+
+/* TABLET */
+@media screen and (max-width: 900px) {
+
+    .videos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shorts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .search-area {
+        width: 40%;
+    }
+
+    .short-card img {
+        height: 250px;
+    }
+
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+
+    .header {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .left-header {
+        gap: 8px;
+    }
+
+    .menu {
+        font-size: 18px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .logo sup {
+        font-size: 7px;
+    }
+
+    .search-area {
+        width: 43%;
+        gap: 5px;
+    }
+
+    .search-box {
+        height: 35px;
+    }
+
+    .search-text {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .search-icon {
+        width: 35px;
+        font-size: 20px;
+    }
+
+    .mic {
+        display: none;
+    }
+
+    .right-header {
+        gap: 10px;
+    }
+
+    .create {
+        display: none;
+    }
+
+    .notification {
+        font-size: 18px;
+    }
+
+    .profile {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 75px 10px 20px;
+    }
+
+    .categories {
+        margin-bottom: 20px;
+        gap: 8px;
+    }
+
+    .category {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .videos {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .video-title {
+        font-size: 14px;
+    }
+
+    .shorts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .short-card img {
+        height: 230px;
+    }
+
+    .shorts-heading {
+        margin-top: 30px;
+    }
+
+}
+
+/* SMALL MOBILE */
+@media screen and (max-width: 380px) {
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .search-area {
+        width: 40%;
+    }
+
+    .search-icon {
+        width: 30px;
+    }
+
+    .short-card img {
+        height: 190px;
+    }
+
+}
